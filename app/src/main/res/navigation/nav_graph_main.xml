@@ -9,5 +9,30 @@
         android:id="@+id/record"
         android:name="com.example.finalproject.Record"
         android:label="fragment_record"
-        tools:layout="@layout/fragment_record" />
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/action_record_to_status"
+            app:destination="@id/status" />
+        <action
+            android:id="@+id/action_record_to_note"
+            app:destination="@id/note" />
+        <action
+            android:id="@+id/action_record_to_checklist"
+            app:destination="@id/checklist" />
+    </fragment>
+    <fragment
+        android:id="@+id/note"
+        android:name="com.example.finalproject.Note"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" />
+    <fragment
+        android:id="@+id/checklist"
+        android:name="com.example.finalproject.Checklist"
+        android:label="fragment_checklist"
+        tools:layout="@layout/fragment_checklist" />
+    <fragment
+        android:id="@+id/status"
+        android:name="com.example.finalproject.Status"
+        android:label="fragment_status"
+        tools:layout="@layout/fragment_status" />
 </navigation>
