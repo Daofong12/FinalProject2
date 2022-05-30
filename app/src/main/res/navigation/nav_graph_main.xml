@@ -24,15 +24,27 @@
         android:id="@+id/note"
         android:name="com.example.finalproject.Note"
         android:label="fragment_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_note_to_record"
+            app:destination="@id/record" />
+    </fragment>
     <fragment
         android:id="@+id/checklist"
         android:name="com.example.finalproject.Checklist"
         android:label="fragment_checklist"
-        tools:layout="@layout/fragment_checklist" />
+        tools:layout="@layout/fragment_checklist" >
+        <action
+            android:id="@+id/action_checklist_to_record"
+            app:destination="@id/record" />
+    </fragment>
     <fragment
         android:id="@+id/status"
         android:name="com.example.finalproject.Status"
         android:label="fragment_status"
-        tools:layout="@layout/fragment_status" />
+        tools:layout="@layout/fragment_status" >
+        <action
+            android:id="@+id/action_status_to_record"
+            app:destination="@id/record" />
+    </fragment>
 </navigation>
