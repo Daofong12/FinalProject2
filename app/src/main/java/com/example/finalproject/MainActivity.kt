@@ -1,17 +1,9 @@
 package com.example.finalproject
 
-import android.app.TaskStackBuilder
-import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -29,6 +21,22 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tl,pager){
             tab,position->tab.text=tabTitle[position]
         }.attach()
+    }
+    fun realizeNavigation(view:View){
+        val intent = Intent(this,NavigationActivity::class.java).apply{}
+        startActivity(intent)
+    }
+    fun recordStatusActivity(view: View){
+        val intent = Intent(this,record_status::class.java).apply{}
+        startActivity(intent)
+    }
+    fun recordNoteActivity(view: View){
+        val intent = Intent(this,record_note::class.java).apply{}
+        startActivity(intent)
+    }
+    fun recordChecklistActivity(view: View){
+        val intent = Intent(this,record_checklist::class.java).apply{}
+        startActivity(intent)
     }
 
 }

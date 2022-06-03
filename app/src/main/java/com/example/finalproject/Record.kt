@@ -1,5 +1,6 @@
 package com.example.finalproject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.finalproject.MainActivity
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,13 +44,13 @@ class Record : Fragment() {
         val btn_note:Button = view.findViewById(R.id.button_note)
         val btn_checklist:Button = view.findViewById(R.id.button_checklist)
         btn_status.setOnClickListener{
-            findNavController().navigate(R.id.action_record_to_status)
+            (activity as MainActivity).recordStatusActivity(view)
         }
         btn_note.setOnClickListener{
-            findNavController().navigate(R.id.action_record_to_note)
+            (activity as MainActivity).recordNoteActivity(view)
         }
         btn_checklist.setOnClickListener{
-            findNavController().navigate(R.id.action_record_to_checklist)
+            (activity as MainActivity).recordChecklistActivity(view)
         }
         return view
     }

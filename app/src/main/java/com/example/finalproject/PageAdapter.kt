@@ -14,7 +14,7 @@ class PageAdapter(fm:FragmentManager,lifecycle:Lifecycle):FragmentStateAdapter(f
     override fun createFragment(position: Int): Fragment {
         when(position){
             0->return Home()
-            1->return nav()
+            1->return Record()
             2->return Message()
             else->return Home()
         }
