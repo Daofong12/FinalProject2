@@ -103,5 +103,19 @@
         app:layout_constraintTop_toBottomOf="@+id/dialog_content"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
+    <TextView
+        android:id="@+id/speechRecogText"
+        android:layout_width="357dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:text="content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_save" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
