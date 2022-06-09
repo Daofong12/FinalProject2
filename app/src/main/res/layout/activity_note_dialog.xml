@@ -6,32 +6,19 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <EditText
+    <TextView
         android:id="@+id/dialog_date"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:autofillHints=""
         android:background="@color/white"
-        android:hint="@string/choose_date"
-        android:inputType="datetime"
         android:minHeight="48dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/date_btn"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        app:icon="@android:drawable/ic_menu_today"
-        app:iconGravity="textStart"
-        app:iconPadding="2dp"
-        app:iconTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dialog_date"
-        app:layout_constraintTop_toTopOf="@+id/dialog_date"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/dialog_title"
@@ -68,33 +55,21 @@
         android:background="@drawable/textview_border"
         android:hint="@string/note_dialog_content"
         android:inputType="textMultiLine"
-        android:maxLines="10"
+        android:maxLines="12"
         android:minHeight="48dp"
-        android:minLines="8"
+        android:minLines="10"
         android:scrollbars="vertical"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_title"
         tools:ignore="TextContrastCheck" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/note_dialog_cancel_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:fabCustomSize="48dp"
-        app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:maxImageSize="28dp"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-
     <Button
         android:id="@+id/button_save"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="@string/save"
         android:textSize="22sp"
         app:icon="@android:drawable/ic_menu_save"
@@ -102,20 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_content"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/speechRecogText"
-        android:layout_width="357dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="36dp"
-        android:text="content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
