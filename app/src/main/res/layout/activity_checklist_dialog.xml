@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_checklist_dialog">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="2dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:background="#C4C4C4"
+        android:contentDescription="@string/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@android:drawable/status_bar_item_app_background"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/dot"
+        android:contentDescription="@string/center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_fiber_manual_record_white_24dp"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="2dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:background="#C4C4C4"
+        android:contentDescription="@string/line"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/status_bar_item_app_background"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="120dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:background="#C4C4C4"
+        android:contentDescription="@string/line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/status_bar_item_app_background"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="120dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="8dp"
+        android:background="#C4C4C4"
+        android:contentDescription="@string/line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/status_bar_item_app_background"
+        tools:ignore="ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/button_pill"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/button"
+        android:text="@string/pill"
+        android:textColor="#C9C9C9"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button_diagnosis"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/button"
+        android:text="@string/diagnosis"
+        android:textColor="#C9C9C9"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:strokeColor="@color/border_gray"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button_diet"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/button"
+        android:text="@string/diet"
+        android:textColor="#C9C9C9"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button_care"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/button"
+        android:text="@string/care"
+        android:textColor="#C9C9C9"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/check"
+        android:textColor="#A1A1A1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button_diagnosis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

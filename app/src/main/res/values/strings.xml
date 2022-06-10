@@ -8,10 +8,18 @@
     <string name="add">add</string>
     <string name="status">狀態紀錄</string>
     <string name="note">隨手筆記</string>
-    <string name="checklist">代辦事項</string>
+    <string name="checklist">待辦事項</string>
     <string name="add_note">添加留言</string>
     <string name="choose_date">選擇日期</string>
     <string name="note_dialog_title">標題</string>
     <string name="note_dialog_content">寫點內容八</string>
     <string name="save">儲存</string>
+    <string name="add_checklist">添加待辦事項</string>
+    <string name="check">待辦事件</string>
+    <string name="pill">服藥</string>
+    <string name="diagnosis">回診</string>
+    <string name="diet">飲食</string>
+    <string name="care">照護</string>
+    <string name="center">Center</string>
+    <string name="line">line</string>
 </resources>

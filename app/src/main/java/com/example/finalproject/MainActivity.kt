@@ -7,6 +7,8 @@ import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var tabTitle = arrayOf("Home","Record","Message")
@@ -38,5 +40,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,record_checklist::class.java).apply{}
         startActivity(intent)
     }
-
 }
