@@ -13,7 +13,7 @@ import android.util.Log
 class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private const val DATABASE_NAME = "record.db"
+        private const val DATABASE_NAME = "checklist.db"
         private const val DATABASE_VERSION = 1
         private const val TBL_CHECKLIST = "tbl_checklist"
         private const val ID_c = "id_c"
