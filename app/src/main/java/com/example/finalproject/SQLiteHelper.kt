@@ -21,7 +21,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
     override fun onCreate(db: SQLiteDatabase?) {
         val createTblnote = ("CREATE TABLE " + TBL_NOTE + "("
-                + ID + " INTEGER AUTOINCREMENT PRIMARY KEY," + DATE + " TEXT,"
+                + ID + " INTEGER PRIMARY KEY," + DATE + " TEXT,"
                 + SUBJECT + " TEXT," + CONTENT + " TEXT" + ")")
         db?.execSQL(createTblnote)
     }
