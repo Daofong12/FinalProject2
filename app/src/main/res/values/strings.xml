@@ -22,6 +22,12 @@
     <string name="care">照護</string>
     <string name="center">Center</string>
     <string name="line">line</string>
+    <string name="location">事件地點</string>
+    <string name="event">事件提醒</string>
+    <string name="calender">Calender</string>
+    <string name="date_set">請選取日期</string>
     <string name="update">更新</string>
     <string name="delete">刪除</string>
+    <string name="choose_time">請選擇時間</string>
+    <string name="time">Time</string>
 </resources>

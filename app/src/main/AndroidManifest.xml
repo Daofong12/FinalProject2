@@ -30,6 +30,13 @@
                 android:value=".record_note" />
         </activity>
         <activity
+            android:name=".activity_checklist_detail"
+            android:parentActivityName=".activity_checklist_dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity_checklist_dialog" />
+        </activity>
+        <activity
             android:name=".activity_checklist_dialog"
             android:parentActivityName=".record_checklist">
             <meta-data

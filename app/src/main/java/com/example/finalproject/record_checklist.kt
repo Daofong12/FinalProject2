@@ -13,7 +13,7 @@ class record_checklist : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record_checklist)
 
-        var date_text:TextView = findViewById(R.id.textView_checklist_date)
+        val date_text:TextView = findViewById(R.id.textView_checklist_date)
         date_text.setText(getNow())
 
         val fab_note: View = findViewById(R.id.FAB_checklist)
