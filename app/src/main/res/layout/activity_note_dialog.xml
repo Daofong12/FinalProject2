@@ -7,7 +7,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/dialog_date_update"
+        android:id="@+id/dialog_date"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -21,7 +21,7 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/dialog_title_update"
+        android:id="@+id/dialog_title"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -31,23 +31,23 @@
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_date_update"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_date"
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/microphone_btn_update"
+        android:id="@+id/microphone_btn"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         app:icon="@android:drawable/ic_btn_speak_now"
         app:iconGravity="textStart"
         app:iconPadding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dialog_title_update"
-        app:layout_constraintTop_toTopOf="@+id/dialog_title_update"
+        app:layout_constraintStart_toEndOf="@+id/dialog_title"
+        app:layout_constraintTop_toTopOf="@+id/dialog_title"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/dialog_content_update"
+        android:id="@+id/dialog_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -62,11 +62,11 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_title_update"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/button_update"
+        android:id="@+id/button_save"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -75,7 +75,7 @@
         app:icon="@android:drawable/ic_menu_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_content_update"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_content"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
 

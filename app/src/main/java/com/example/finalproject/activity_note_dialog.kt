@@ -24,11 +24,11 @@ class activity_note_dialog : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_dialog)
 
-        val date_text :TextView = findViewById(R.id.dialog_date_update)
-        val btn_save: Button = findViewById(R.id.button_update)
-        val microphone_btn: Button = findViewById(R.id.microphone_btn_update)
-        val dialog_title: EditText = findViewById(R.id.dialog_title_update)//標題資訊
-        val dialog_content: EditText = findViewById(R.id.dialog_content_update)//內容資訊
+        val date_text :TextView = findViewById(R.id.dialog_date)
+        val btn_save: Button = findViewById(R.id.button_save)
+        val microphone_btn: Button = findViewById(R.id.microphone_btn)
+        val dialog_title: EditText = findViewById(R.id.dialog_title)//標題資訊
+        val dialog_content: EditText = findViewById(R.id.dialog_content)//內容資訊
 
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
             if (result!!.resultCode == RESULT_OK && result!!.data != null) {
@@ -57,7 +57,6 @@ class activity_note_dialog : AppCompatActivity() {
             //關閉彈出視窗
             Toast.makeText(this, "儲存成功", Toast.LENGTH_SHORT).show()
             finish()
-            //TODO:資料取得
         }
     }
 

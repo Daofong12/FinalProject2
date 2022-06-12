@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.recyclerview.widget.RecyclerView
 
 class activity_checklist_dialog : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checklist_dialog)
@@ -31,7 +33,6 @@ class activity_checklist_dialog : AppCompatActivity() {
     }
     private fun StartChecklistDetailActivity(category:String){
         val intent = Intent(this,activity_checklist_detail::class.java).apply{}
-        Log.v("cat",category)
         intent.putExtra("category",category)
         startActivity(intent)
     }

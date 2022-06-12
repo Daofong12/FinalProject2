@@ -11,6 +11,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class activity_checklist_detail : AppCompatActivity() {
+
+    private lateinit var sqliteHelper_c: SQLiteHelper_c
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checklist_detail)
@@ -20,6 +23,9 @@ class activity_checklist_detail : AppCompatActivity() {
         val tv_time:TextView = findViewById(R.id.textView_time)
         val tv_category:TextView = findViewById(R.id.textView_chk_category)
         var category:String = ""
+        val dialog_event:EditText = findViewById(R.id.text_checklist_event)
+        val dialog_location:EditText = findViewById(R.id.text_checklist_location)
+        val btn_chk_save:Button = findViewById(R.id.button_chk_save)
 
         if(intent.getStringExtra("category").toString()=="服藥"){
             tv_category.setText("服藥")
@@ -67,5 +73,36 @@ class activity_checklist_detail : AppCompatActivity() {
                 calender.get(Calendar.HOUR_OF_DAY),calender.get(Calendar.MINUTE),true).show()
         }
 
+        sqliteHelper_c = SQLiteHelper_c(this)
+        btn_chk_save.setOnClickListener{
+            addChecklist(tv_date.text.toString(),tv_time.text.toString(),category,
+                dialog_event.text.toString(),dialog_location.text.toString())
+            clearText(tv_date,tv_time,tv_category,dialog_event,dialog_location)
+
+            finish()
+        }
+
+    }
+    private fun addChecklist(date_c:String,time:String,category:String,event:String,location:String) {
+        if(date_c.isEmpty() || time.isEmpty() || category.isEmpty() || event.isEmpty() || location.isEmpty()) {
+            Toast.makeText(this, "Please enter required field", Toast.LENGTH_SHORT).show()
+        }else{
+            val checklist = ChecklistModel(date_c = date_c, time = time, category = category,
+            event = event, location = location)
+            val status = sqliteHelper_c.insertChecklist(checklist)
+            if (status > -1){
+                Toast.makeText(this, "Checklist added...", Toast.LENGTH_SHORT).show()
+
+            } else {
+                Toast.makeText(this, "Checklist not saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun clearText(tv_date:TextView,tv_time:TextView,tv_category:TextView,dialog_event:EditText,dialog_location:EditText) {
+        tv_date.text = ""
+        tv_time.text = ""
+        tv_category.text = ""
+        dialog_event.setText("")
+        dialog_location.setText("")
     }
 }
