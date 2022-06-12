@@ -6,6 +6,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.MediaStore.Video.VideoColumns.CATEGORY
+import android.util.Log
 
 class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -24,6 +26,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 + ID + " INTEGER PRIMARY KEY," + DATE + " TEXT,"
                 + SUBJECT + " TEXT," + CONTENT + " TEXT" + ")")
         db?.execSQL(createTblnote)
+        Log.v("note",createTblnote)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
