@@ -23,9 +23,15 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".activity_update_note"
+            android:parentActivityName=".record_note">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".record_note" />
+        </activity>
+        <activity
             android:name=".activity_checklist_dialog"
             android:parentActivityName=".record_checklist">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".record_checklist" />
@@ -33,17 +39,16 @@
         <activity
             android:name=".activity_note_dialog"
             android:parentActivityName=".record_note">
-
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".record_note" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".record_note" />
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -22,4 +22,6 @@
     <string name="care">照護</string>
     <string name="center">Center</string>
     <string name="line">line</string>
+    <string name="update">更新</string>
+    <string name="delete">刪除</string>
 </resources>

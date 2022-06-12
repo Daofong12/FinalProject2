@@ -38,6 +38,16 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:text="content"/>
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/delete"
+            android:textSize="18sp"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconSize="28dp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
