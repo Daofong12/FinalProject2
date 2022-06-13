@@ -56,17 +56,36 @@
             android:layout_marginTop="10dp"
             android:text="location"
             android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/edit"
+            android:textSize="18sp"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconSize="26dp"
+            tools:ignore="TextContrastCheck"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/delete_btn_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|end"
             android:text="@string/delete"
             android:textSize="18sp"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconSize="28dp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

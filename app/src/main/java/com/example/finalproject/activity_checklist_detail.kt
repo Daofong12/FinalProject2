@@ -4,8 +4,6 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.*
 import java.text.SimpleDateFormat
 import java.util.*

@@ -15,6 +15,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
 //    private val itemcotent = arrayOf("test10","test20","test30","test40","test50","test60")
     private var checklistList: ArrayList<ChecklistModel> = ArrayList()
     private var onClickItem: ((ChecklistModel) -> Unit)? = null
+    private var onClickEditItem: ((ChecklistModel) -> Unit)? = null
     private var onClickDeleteItem: ((ChecklistModel) -> Unit)? = null
 
 
@@ -31,6 +32,10 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         this.onClickDeleteItem = callback
     }
 
+    fun setOnclickEditItem(callback: (ChecklistModel) -> Unit) {
+        this.onClickEditItem = callback
+    }
+
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var date : TextView
         var time : TextView
@@ -38,6 +43,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         var event : TextView
         var location : TextView
         var btnDelete : Button
+        var btnEdit : Button
 
         init {
             date = itemView.findViewById(R.id.checklist_date)
@@ -46,6 +52,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
             event = itemView.findViewById(R.id.checklist_event)
             location = itemView.findViewById(R.id.checklist_location)
             btnDelete = itemView.findViewById(R.id.delete_btn_c)
+            btnEdit = itemView.findViewById(R.id.btn_edit)
         }
 
         fun bindView(checklist: ChecklistModel) {
@@ -70,6 +77,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         val checklist = checklistList[position]
         holder.bindView(checklist)
         holder.itemView.setOnClickListener{ onClickItem?.invoke(checklist)}
+        holder.btnEdit.setOnClickListener{onClickEditItem?.invoke(checklist)}
         holder.btnDelete.setOnClickListener{ onClickDeleteItem?.invoke(checklist)}
     }
 

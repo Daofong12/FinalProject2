@@ -30,4 +30,5 @@
     <string name="delete">刪除</string>
     <string name="choose_time">請選擇時間</string>
     <string name="time">Time</string>
+    <string name="edit">編輯</string>
 </resources>

@@ -9,7 +9,9 @@ class ChecklistModel (
     var event: String = "",
     var location: String = "",
     var date_c: String = "",
-    var time:String = ""
+    var time:String = "",
+    var isSelected:Int = 0
+
     ) {
         companion object{
             fun getAutoId(): Int{

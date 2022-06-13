@@ -33,18 +33,20 @@ class record_checklist : AppCompatActivity() {
         recycleView.adapter = adapter_c
 
         sqliteHelper_c = SQLiteHelper_c(this)
-
         getChecklist()
+
         //TODO:X:update;O:checked/unchecked
-        /*
-        adapter_c.setOnClickItem {
-            val intent = Intent(this,activity_update_note::class.java).apply{}
-            intent.putExtra("id",it.id)
-            intent.putExtra("date",it.date)
-            intent.putExtra("title",it.subject)
-            intent.putExtra("content",it.content)
+        adapter_c?.setOnclickEditItem {
+            val intent = Intent(this,activity_update_checklist::class.java).apply{}
+            intent.putExtra("id_c",it.id_c)
+            intent.putExtra("date_c",it.date_c)
+            intent.putExtra("time",it.time)
+            intent.putExtra("category",it.category)
+            intent.putExtra("event",it.event)
+            intent.putExtra("location",it.location)
+            intent.putExtra("isSelected",it.isSelected)
             startActivity(intent)
-        }*/
+        }
 
         adapter_c?.setOnclickDeleteItem {
             deleteChecklist(it.id_c)

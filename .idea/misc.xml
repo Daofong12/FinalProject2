@@ -12,12 +12,14 @@
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/drawable/textview_border.xml" value="0.324" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_checklist_detail.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_checklist_dialog.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_checklist_update.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_navigation.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_note_dialog.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_record_checklist.xml" value="0.1282051282051282" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_record_note.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_record_status.xml" value="0.3555253623188406" />
+        <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_update_checklist.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/activity_update_note.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/fragment_checklist.xml" value="0.3625" />
         <entry key="..\:/Users/Peter/AndroidStudioProjects/FinalProject2/app/src/main/res/layout/fragment_home.xml" value="0.3491847826086957" />

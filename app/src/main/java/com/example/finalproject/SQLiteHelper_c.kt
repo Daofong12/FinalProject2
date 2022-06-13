@@ -22,7 +22,7 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val CATEGORY = "category"
         private const val EVENT = "event"
         private const val LOCATION = "location"
-
+        private const val ISSELECTED = "isSelected"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -30,7 +30,7 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val createTblChecklist = ("CREATE TABLE " + TBL_CHECKLIST + "("
                 + ID_c + " INTEGER PRIMARY KEY," + DATE_c + " TEXT,"
                 + TIME + " TEXT," + CATEGORY + " TEXT," + EVENT + " TEXT,"
-                + LOCATION + " TEXT" +")")
+                + LOCATION + " TEXT," + ISSELECTED + " INTEGER"+")")
         db?.execSQL(createTblChecklist)
     }
 
@@ -49,9 +49,10 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         contentValues.put(CATEGORY, checklist.category)
         contentValues.put(EVENT, checklist.event)
         contentValues.put(LOCATION, checklist.location)
+        contentValues.put(ISSELECTED, checklist.isSelected)
 
         val success = db.insert(TBL_CHECKLIST, null, contentValues)
-        db.close()
+        //db.close()
         return success
     }
 
@@ -77,6 +78,7 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         var category: String
         var event: String
         var location: String
+        var isSelected:Int
 
         if (cursor.moveToFirst()) {
             do {
@@ -86,9 +88,10 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 category = cursor.getString(cursor.getColumnIndex("category"))
                 event = cursor.getString(cursor.getColumnIndex("event"))
                 location = cursor.getString(cursor.getColumnIndex("location"))
+                isSelected = cursor.getInt(cursor.getColumnIndex("isSelected"))
 
-                val checklist = ChecklistModel(id_c = id_c, date_c = date_c, time = time, category = category
-                    , event = event, location = location)
+                val checklist = ChecklistModel (id_c = id_c, date_c = date_c, time = time, category = category
+                    , event = event, location = location, isSelected = isSelected)
                 checklistList.add(checklist)
             }while (cursor.moveToNext())
         }
@@ -106,6 +109,7 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         contentValues.put(CATEGORY, checklist.category)
         contentValues.put(EVENT, checklist.event)
         contentValues.put(LOCATION, checklist.location)
+        contentValues.put(ISSELECTED, checklist.isSelected)
 
         val success = db.update(TBL_CHECKLIST, contentValues, "id_c =" + checklist.id_c, null)
         db.close()
