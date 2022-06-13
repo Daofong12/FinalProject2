@@ -3,6 +3,7 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -34,6 +35,27 @@ class record_checklist : AppCompatActivity() {
 
         sqliteHelper_c = SQLiteHelper_c(this)
         getChecklist()
+
+        adapter_c?.setOnClickItem {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("確認此項活動:${it.event} 已完成?")
+            builder.setMessage("種類:${it.category} \n地點:${it.location} \n" +
+                    "時間:${it.date_c} ${it.time}")
+            builder.setCancelable(true)
+            builder.setPositiveButton("Yes") { dialog, _ ->
+                val checklist = ChecklistModel(id_c = it.id_c,date_c = it.date_c, time = it.time, category = it.category,
+                    event = it.event, location = it.location, isSelected = 1)
+                sqliteHelper_c.updateChecklist(checklist)
+                getChecklist()
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val alert = builder.create()
+            alert.show()
+        }
 
         //TODO:X:update;O:checked/unchecked
         adapter_c?.setOnclickEditItem {
@@ -77,6 +99,7 @@ class record_checklist : AppCompatActivity() {
         val checklistList = sqliteHelper_c.getAllChecklist()
         adapter_c?.addItems(checklistList)
     }
+    
     private fun deleteChecklist(id_c: Int) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Are you sure you want to delete checklist?")
