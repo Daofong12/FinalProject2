@@ -99,7 +99,7 @@ class record_checklist : AppCompatActivity() {
         val checklistList = sqliteHelper_c.getAllChecklist()
         adapter_c?.addItems(checklistList)
     }
-    
+
     private fun deleteChecklist(id_c: Int) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Are you sure you want to delete checklist?")

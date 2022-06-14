@@ -122,10 +122,9 @@
 
             <CheckBox
                 android:id="@+id/checkbox"
-                style="@style/Widget.Material3.CompoundButton.CheckBox"
+                style="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:checked="false"
                 android:clickable="false" />
         </LinearLayout>
     </LinearLayout>

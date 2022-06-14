@@ -1,11 +1,15 @@
 package com.example.finalproject
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ScrollCaptureCallback
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.CheckedTextView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChecklist.ViewHolder>(){
@@ -37,6 +41,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
     }
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+        var card : CardView
         var date : TextView
         var time : TextView
         var category : TextView
@@ -44,8 +49,10 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         var location : TextView
         var btnDelete : Button
         var btnEdit : Button
+        var chkSelected : CheckBox
 
         init {
+            card = itemView.findViewById(R.id.cardView_chk)
             date = itemView.findViewById(R.id.checklist_date)
             time = itemView.findViewById(R.id.checklist_time)
             category = itemView.findViewById(R.id.checklist_category)
@@ -53,6 +60,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
             location = itemView.findViewById(R.id.checklist_location)
             btnDelete = itemView.findViewById(R.id.delete_btn_c)
             btnEdit = itemView.findViewById(R.id.btn_edit)
+            chkSelected = itemView.findViewById(R.id.checkbox)
         }
 
         fun bindView(checklist: ChecklistModel) {
@@ -61,6 +69,10 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
             category.text = checklist.category
             event.text = checklist.event
             location.text = checklist.location
+            if (checklist.isSelected == 1){
+                chkSelected.isChecked = true
+                card.setCardBackgroundColor(Color.parseColor("#4FAFAA"))
+            }
         }
     }
 
@@ -77,7 +89,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         val checklist = checklistList[position]
         holder.bindView(checklist)
         holder.itemView.setOnClickListener{ onClickItem?.invoke(checklist)}
-        holder.btnEdit.setOnClickListener{onClickEditItem?.invoke(checklist)}
+        holder.btnEdit.setOnClickListener{ onClickEditItem?.invoke(checklist)}
         holder.btnDelete.setOnClickListener{ onClickDeleteItem?.invoke(checklist)}
     }
 
