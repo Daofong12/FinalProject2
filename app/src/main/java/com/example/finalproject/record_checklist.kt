@@ -1,10 +1,13 @@
 package com.example.finalproject
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.DatePicker
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +27,22 @@ class record_checklist : AppCompatActivity() {
         setContentView(R.layout.activity_record_checklist)
 
         val date_text:TextView = findViewById(R.id.textView_checklist_date)
+        val calender = Calendar.getInstance()
         date_text.setText(getNow())
+
+        val listener = object : DatePickerDialog.OnDateSetListener{
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+                calender.set(year,month,day)
+                val myformat = "yyyy-MM-dd"
+                val sdf = SimpleDateFormat(myformat, Locale.TAIWAN)
+                date_text.text = sdf.format(calender.time)
+            }
+        }
+        val img_calender: ImageView = findViewById(R.id.checklist_calender)
+        img_calender.setOnClickListener{
+            DatePickerDialog(this,listener,
+                calender.get(Calendar.YEAR),calender.get(Calendar.MONTH),calender.get(Calendar.DAY_OF_MONTH)).show()
+        }
 
         layoutManager = LinearLayoutManager(this)
         val recycleView:RecyclerView = findViewById(R.id.recycleView_checklist)
