@@ -57,15 +57,15 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     @SuppressLint("Range")
-    fun getAllChecklist(): ArrayList<ChecklistModel> {
+    fun getAllChecklist(date: String): ArrayList<ChecklistModel> {
         val checklistList: ArrayList<ChecklistModel> = ArrayList()
-        val selectQuery = "SELECT * FROM $TBL_CHECKLIST"
+        val selectQuery = "SELECT * FROM $TBL_CHECKLIST WHERE $DATE_c = ?"
         val db = this.readableDatabase
 
         val cursor: Cursor?
 
         try{
-            cursor = db.rawQuery(selectQuery, null)
+            cursor = db.rawQuery(selectQuery, arrayOf(date))
         }catch (e: Exception){
             e.printStackTrace()
             db.execSQL(selectQuery)

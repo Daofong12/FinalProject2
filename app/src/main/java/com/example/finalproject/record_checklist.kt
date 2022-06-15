@@ -36,6 +36,7 @@ class record_checklist : AppCompatActivity() {
                 val myformat = "yyyy-MM-dd"
                 val sdf = SimpleDateFormat(myformat, Locale.TAIWAN)
                 date_text.text = sdf.format(calender.time)
+                getChecklist(date_text.text.toString())
             }
         }
         val img_calender: ImageView = findViewById(R.id.checklist_calender)
@@ -43,6 +44,7 @@ class record_checklist : AppCompatActivity() {
             DatePickerDialog(this,listener,
                 calender.get(Calendar.YEAR),calender.get(Calendar.MONTH),calender.get(Calendar.DAY_OF_MONTH)).show()
         }
+
 
         layoutManager = LinearLayoutManager(this)
         val recycleView:RecyclerView = findViewById(R.id.recycleView_checklist)
@@ -52,7 +54,7 @@ class record_checklist : AppCompatActivity() {
         recycleView.adapter = adapter_c
 
         sqliteHelper_c = SQLiteHelper_c(this)
-        getChecklist()
+        getChecklist(date_text.text.toString())
 
         adapter_c?.setOnClickItem {
             val builder = AlertDialog.Builder(this)
@@ -64,7 +66,7 @@ class record_checklist : AppCompatActivity() {
                 val checklist = ChecklistModel(id_c = it.id_c,date_c = it.date_c, time = it.time, category = it.category,
                     event = it.event, location = it.location, isSelected = 1)
                 sqliteHelper_c.updateChecklist(checklist)
-                getChecklist()
+                getChecklist(date_text.text.toString())
                 dialog.dismiss()
             }
             builder.setNegativeButton("No") { dialog, _ ->
@@ -89,7 +91,7 @@ class record_checklist : AppCompatActivity() {
         }
 
         adapter_c?.setOnclickDeleteItem {
-            deleteChecklist(it.id_c)
+            deleteChecklist(it.id_c, date_text.text.toString())
         }
 
         val fab_note: View = findViewById(R.id.FAB_checklist)
@@ -100,7 +102,9 @@ class record_checklist : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
-        getChecklist()
+
+        val date_text:TextView = findViewById(R.id.textView_checklist_date)
+        getChecklist(date_text.text.toString())
     }
 
     //Maybe Change by Calender
@@ -113,18 +117,18 @@ class record_checklist : AppCompatActivity() {
                 .toString() + "-" + tms.get(Calendar.DAY_OF_MONTH).toString()
         }
     }
-    private fun getChecklist() {
-        val checklistList = sqliteHelper_c.getAllChecklist()
+    private fun getChecklist(date: String) {
+        val checklistList = sqliteHelper_c.getAllChecklist(date)
         adapter_c?.addItems(checklistList)
     }
 
-    private fun deleteChecklist(id_c: Int) {
+    private fun deleteChecklist(id_c: Int, date: String) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Are you sure you want to delete checklist?")
         builder.setCancelable(true)
         builder.setPositiveButton("Yes") { dialog, _ ->
             sqliteHelper_c.deleteChecklistById(id_c)
-            getChecklist()
+            getChecklist(date)
             dialog.dismiss()
         }
         builder.setNegativeButton("No") { dialog, _ ->
