@@ -12,14 +12,27 @@ class AlarmService(private val context: Context) {
     private val alarmManager: AlarmManager? =
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager?
 
-    fun setExactAlarm(timeInMillis: Long) {
+    fun setExactAlarm(timeInMillis: Long, id: Int) {
         setAlarm(
             timeInMillis,
             getPendingIntent(
                 getIntent().apply {
                     action = Constants.ACTION_SET_EXACT_ALARM
-                    putExtra(Constants.EXTRA_EXACT_ALARM_TIME, timeInMillis)
-                }
+//                    putExtra(Constants.EXTRA_EXACT_ALARM_TIME, timeInMillis)
+                },
+                id
+            )
+        )
+    }
+
+    fun cancelAlarm(id: Int) {
+        alarmManager?.cancel(
+            getPendingIntent(
+                getIntent().apply {
+                    action = Constants.ACTION_SET_EXACT_ALARM
+    //                    putExtra(Constants.EXTRA_EXACT_ALARM_TIME, timeInMillis)
+                },
+                id
             )
         )
     }
@@ -44,10 +57,10 @@ class AlarmService(private val context: Context) {
 
     private fun getIntent(): Intent = Intent(context, AlarmReceiver::class.java)
 
-    private fun getPendingIntent(intent: Intent): PendingIntent =
+    private fun getPendingIntent(intent: Intent, id: Int): PendingIntent =
         PendingIntent.getBroadcast(
             context,
-            RandomIntUtil.getRandomInt(),
+            id,
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT
         )

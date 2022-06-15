@@ -17,7 +17,7 @@ import java.util.*
 class AlarmReceiver: BroadcastReceiver() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onReceive(context: Context, intent: Intent) {
-        val timeInMillis = intent.getLongExtra(Constants.EXTRA_EXACT_ALARM_TIME, 0L)
+//        val timeInMillis = intent.getLongExtra(Constants.EXTRA_EXACT_ALARM_TIME, 0L)
 
         when (intent.action) {
             Constants.ACTION_SET_EXACT_ALARM -> {

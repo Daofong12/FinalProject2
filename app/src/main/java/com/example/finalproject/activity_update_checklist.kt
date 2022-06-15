@@ -101,13 +101,16 @@ class activity_update_checklist : AppCompatActivity() {
             val checklist = ChecklistModel(id_c = id_c,date_c = new_date_c, time = new_time, category = category.toString(),
                 event = new_event, location = new_location, isSelected = isSelected)
             val status = sqliteHelper_c.updateChecklist(checklist)
+
+            alarmService.cancelAlarm(sqliteHelper_c.getId(new_date_c, new_time, category.toString(), new_event, new_location))
+            alarmService.setExactAlarm(calender.timeInMillis, sqliteHelper_c.getId(new_date_c, new_time, category.toString(), new_event, new_location))
+
             if(status > -1){
                 clearText(tv_date,tv_time,tv_category,dialog_event,dialog_location)
             }else{
                 Toast.makeText(this, "Update failed...", Toast.LENGTH_SHORT).show()
             }
 
-            alarmService.setExactAlarm(calender.timeInMillis)
 
             finish()
         }

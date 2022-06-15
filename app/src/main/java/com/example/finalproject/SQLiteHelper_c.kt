@@ -126,4 +126,19 @@ class SQLiteHelper_c(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return success
     }
+
+    @SuppressLint("Range")
+    fun getId(date: String, time: String, cat: String, event: String, loc: String): Int {
+        var id: Int
+        val selectQuery = "SELECT $ID_c FROM $TBL_CHECKLIST WHERE $DATE_c = ? AND $TIME = ? AND $CATEGORY = ? AND $EVENT = ? AND $LOCATION = ?"
+        val db = this.readableDatabase
+
+        val cursor: Cursor?
+        cursor = db.rawQuery(selectQuery, arrayOf(date, time, cat, event, loc))
+
+        cursor.moveToFirst()
+        id = cursor.getInt(cursor.getColumnIndex("id_c"))
+
+        return id
+    }
 }

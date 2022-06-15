@@ -83,9 +83,11 @@ class activity_checklist_detail : AppCompatActivity() {
         btn_chk_save.setOnClickListener{
             addChecklist(tv_date.text.toString(),tv_time.text.toString(),category,
                 dialog_event.text.toString(),dialog_location.text.toString())
+
+            alarmService.setExactAlarm(calender.timeInMillis, sqliteHelper_c.getId(tv_date.text.toString(), tv_time.text.toString(), category, dialog_event.text.toString(),dialog_location.text.toString()))
+
             clearText(tv_date,tv_time,tv_category,dialog_event,dialog_location)
 
-            alarmService.setExactAlarm(calender.timeInMillis)
             finish()
         }
 
