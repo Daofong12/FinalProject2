@@ -77,7 +77,6 @@ class record_checklist : AppCompatActivity() {
             alert.show()
         }
 
-        //TODO:X:update;O:checked/unchecked
         adapter_c?.setOnclickEditItem {
             val intent = Intent(this,activity_update_checklist::class.java).apply{}
             intent.putExtra("id_c",it.id_c)
