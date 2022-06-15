@@ -35,7 +35,7 @@ class activity_checklist_detail : AppCompatActivity() {
         }
         else if(intent.getStringExtra("category").toString()=="飲食"){
             tv_category.setText("飲食")
-            category = "care"
+            category = "diet"
         }
         else{
             tv_category.setText("照護")

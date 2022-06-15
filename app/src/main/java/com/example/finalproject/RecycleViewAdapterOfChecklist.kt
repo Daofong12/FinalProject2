@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.ScrollCaptureCallback
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.CheckedTextView
-import android.widget.TextView
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,6 +14,7 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
 //    private val itemDate = arrayOf("test1","test2","test3","test4","test5","test6")
 //    private val itemTitle = arrayOf("test11","test22","test33","test44","test55","test66")
 //    private val itemcotent = arrayOf("test10","test20","test30","test40","test50","test60")
+    private val itemimage = intArrayOf(R.drawable.med,R.drawable.dia2,R.drawable.diet,R.drawable.care)
     private var checklistList: ArrayList<ChecklistModel> = ArrayList()
     private var onClickItem: ((ChecklistModel) -> Unit)? = null
     private var onClickEditItem: ((ChecklistModel) -> Unit)? = null
@@ -44,7 +42,8 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         var card : CardView
         var date : TextView
         var time : TextView
-        var category : TextView
+        //var category : TextView
+        var img_category:ImageView
         var event : TextView
         var location : TextView
         var btnDelete : Button
@@ -55,7 +54,8 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
             card = itemView.findViewById(R.id.cardView_chk)
             date = itemView.findViewById(R.id.checklist_date)
             time = itemView.findViewById(R.id.checklist_time)
-            category = itemView.findViewById(R.id.checklist_category)
+            //category = itemView.findViewById(R.id.checklist_category)
+            img_category = itemView.findViewById(R.id.imageView_category)
             event = itemView.findViewById(R.id.checklist_event)
             location = itemView.findViewById(R.id.checklist_location)
             btnDelete = itemView.findViewById(R.id.delete_btn_c)
@@ -66,7 +66,19 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
         fun bindView(checklist: ChecklistModel) {
             date.text = checklist.date_c
             time.text = checklist.time
-            category.text = checklist.category
+            //category.text = checklist.category
+            if(checklist.category == "medicine"){
+                img_category.setImageResource(itemimage[0])
+            }
+            else if(checklist.category == "diagnosis"){
+                img_category.setImageResource(itemimage[1])
+            }
+            else if(checklist.category == "diet"){
+                img_category.setImageResource(itemimage[2])
+            }
+            else{
+                img_category.setImageResource(itemimage[3])
+            }
             event.text = checklist.event
             location.text = checklist.location
             if (checklist.isSelected == 1){
