@@ -73,6 +73,10 @@ class RecycleViewAdapterOfChecklist:RecyclerView.Adapter<RecycleViewAdapterOfChe
                 chkSelected.isChecked = true
                 card.setCardBackgroundColor(Color.parseColor("#4FAFAA"))
             }
+            else{
+                chkSelected.isChecked = false
+                card.setCardBackgroundColor(Color.parseColor("#FFB865"))
+            }
         }
     }
 
