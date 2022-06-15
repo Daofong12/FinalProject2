@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="2dp"
+        android:layout_width="4dp"
         android:layout_height="120dp"
         android:layout_marginTop="8dp"
         android:background="#C4C4C4"
@@ -35,7 +35,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="2dp"
+        android:layout_width="4dp"
         android:layout_height="120dp"
         android:layout_marginBottom="8dp"
         android:background="#C4C4C4"
@@ -49,7 +49,7 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="120dp"
-        android:layout_height="2dp"
+        android:layout_height="4dp"
         android:layout_marginStart="8dp"
         android:background="#C4C4C4"
         android:contentDescription="@string/line"
@@ -62,7 +62,7 @@
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="120dp"
-        android:layout_height="2dp"
+        android:layout_height="4dp"
         android:layout_marginEnd="8dp"
         android:background="#C4C4C4"
         android:contentDescription="@string/line"
@@ -74,6 +74,7 @@
 
     <Button
         android:id="@+id/button_pill"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:background="@drawable/button"
@@ -81,6 +82,11 @@
         android:textColor="#C9C9C9"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:icon="@drawable/pill"
+        app:iconGravity="textTop"
+        app:iconPadding="15dp"
+        app:iconSize="60dp"
+        app:iconTint="#9C9C9C"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
@@ -94,6 +100,11 @@
         android:textColor="#C9C9C9"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:icon="@drawable/dia"
+        app:iconGravity="textTop"
+        app:iconPadding="15dp"
+        app:iconSize="60dp"
+        app:iconTint="#9C9C9C"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:strokeColor="@color/border_gray"
@@ -108,6 +119,11 @@
         android:textColor="#C9C9C9"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:icon="@drawable/apple"
+        app:iconGravity="textTop"
+        app:iconPadding="15dp"
+        app:iconSize="60dp"
+        app:iconTint="#9C9C9C"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
@@ -121,6 +137,11 @@
         android:textColor="#C9C9C9"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:icon="@drawable/plus"
+        app:iconGravity="textTop"
+        app:iconPadding="15dp"
+        app:iconSize="60dp"
+        app:iconTint="#9C9C9C"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
