@@ -30,6 +30,9 @@ class Home : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private var adapter_h: RecyclerViewAdapterOfHome? = null
+    private lateinit var sqliteHelper_c: SQLiteHelper_c
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +50,42 @@ class Home : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val img_home:ImageView = view.findViewById(R.id.imageView_home)
         img_home.setImageResource(R.drawable.home)
+
+        layoutManager = LinearLayoutManager(view.context)
+        val recycleView:RecyclerView = view.findViewById(R.id.recyclerview_home)
+        recycleView.layoutManager = layoutManager
+
+        adapter_h = RecyclerViewAdapterOfHome()
+        recycleView.adapter = adapter_h
+
+        sqliteHelper_c = SQLiteHelper_c(view.context)
+        getChecklist(getNow())
+
+        adapter_h!!.setOnClickItem {
+            val intent = Intent(view.context,record_checklist::class.java).apply {  }
+            startActivity(intent)
+        }
+
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getChecklist(getNow())
+    }
+
+    private fun getNow(): String {
+        if (android.os.Build.VERSION.SDK_INT >= 24) {
+            return SimpleDateFormat("yyyy-MM-dd").format(Date())
+        } else {
+            var tms = Calendar.getInstance()
+            return tms.get(Calendar.YEAR).toString() + "-" + tms.get(Calendar.MONTH)
+                .toString() + "-" + tms.get(Calendar.DAY_OF_MONTH).toString()
+        }
+    }
+    private fun getChecklist(date: String) {
+        val checklistList = sqliteHelper_c.getAllChecklist(date)
+        adapter_h?.addItems(checklistList)
     }
 
     companion object {

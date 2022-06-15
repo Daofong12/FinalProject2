@@ -18,7 +18,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/logo"
-        android:label="哇尬哩共"
+        android:label="挖嘎醫共"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject"

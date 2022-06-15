@@ -44,21 +44,15 @@ class RecyclerViewAdapterOfHome : RecyclerView.Adapter<RecyclerViewAdapterOfHome
         var img_category: ImageView
         var event : TextView
         var location : TextView
-        var btnDelete : Button
-        var btnEdit : Button
-        var chkSelected : CheckBox
 
         init {
-            card = itemView.findViewById(R.id.cardView_chk)
-            date = itemView.findViewById(R.id.checklist_date)
-            time = itemView.findViewById(R.id.checklist_time)
+            card = itemView.findViewById(R.id.cardView_home)
+            date = itemView.findViewById(R.id.home_date)
+            time = itemView.findViewById(R.id.home_time)
             //category = itemView.findViewById(R.id.checklist_category)
-            img_category = itemView.findViewById(R.id.imageView_category)
-            event = itemView.findViewById(R.id.checklist_event)
-            location = itemView.findViewById(R.id.checklist_location)
-            btnDelete = itemView.findViewById(R.id.delete_btn_c)
-            btnEdit = itemView.findViewById(R.id.btn_edit)
-            chkSelected = itemView.findViewById(R.id.checkbox)
+            img_category = itemView.findViewById(R.id.imageView_category_home)
+            event = itemView.findViewById(R.id.home_event)
+            location = itemView.findViewById(R.id.home_location)
         }
 
         fun bindView(checklist: ChecklistModel) {
@@ -80,11 +74,9 @@ class RecyclerViewAdapterOfHome : RecyclerView.Adapter<RecyclerViewAdapterOfHome
             event.text = checklist.event
             location.text = checklist.location
             if (checklist.isSelected == 1){
-                chkSelected.isChecked = true
                 card.setCardBackgroundColor(Color.parseColor("#4FAFAA"))
             }
             else{
-                chkSelected.isChecked = false
                 card.setCardBackgroundColor(Color.parseColor("#FFB865"))
             }
         }
@@ -92,7 +84,7 @@ class RecyclerViewAdapterOfHome : RecyclerView.Adapter<RecyclerViewAdapterOfHome
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycleview_model_checklist,parent,false)
+            .inflate(R.layout.recyclerview_model_home,parent,false)
         return ViewHolder(v)
     }
 
@@ -103,8 +95,6 @@ class RecyclerViewAdapterOfHome : RecyclerView.Adapter<RecyclerViewAdapterOfHome
         val checklist = homeList[position]
         holder.bindView(checklist)
         holder.itemView.setOnClickListener{ onClickItem?.invoke(checklist)}
-        holder.btnEdit.setOnClickListener{ onClickEditItem?.invoke(checklist)}
-        holder.btnDelete.setOnClickListener{ onClickDeleteItem?.invoke(checklist)}
     }
 
     override fun getItemCount(): Int {

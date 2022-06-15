@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView_home"
-    android:layout_width="380dp"
-    android:layout_height="150dp"
+    android:layout_width="360dp"
+    android:layout_height="120dp"
     android:layout_margin="15dp"
     android:clickable="true"
     android:focusable="true"
@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:layout_width="95dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:orientation="vertical">
 
             <ImageView
@@ -36,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="237dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -81,50 +81,8 @@
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_edit_home"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/edit"
-                    android:textSize="18sp"
-                    app:icon="@android:drawable/ic_menu_edit"
-                    app:iconSize="26dp"
-                    tools:ignore="TextContrastCheck" />
-
-                <Button
-                    android:id="@+id/delete_btn_home"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/delete"
-                    android:textSize="18sp"
-                    app:icon="@android:drawable/ic_menu_delete"
-                    app:iconSize="28dp"
-                    tools:ignore="TextContrastCheck" />
-            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:gravity="start"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/checkbox_home"
-                style="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:clickable="false" />
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
