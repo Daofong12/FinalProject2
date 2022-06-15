@@ -22,6 +22,8 @@ class record_checklist : AppCompatActivity() {
     private lateinit var sqliteHelper_c: SQLiteHelper_c
     private var checklist: ChecklistModel? = null
 
+    lateinit var alarmService: AlarmService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record_checklist)
@@ -29,6 +31,8 @@ class record_checklist : AppCompatActivity() {
         val date_text:TextView = findViewById(R.id.textView_checklist_date)
         val calender = Calendar.getInstance()
         date_text.setText(getNow())
+
+        alarmService = AlarmService(this)
 
         val listener = object : DatePickerDialog.OnDateSetListener{
             override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
@@ -90,6 +94,7 @@ class record_checklist : AppCompatActivity() {
         }
 
         adapter_c?.setOnclickDeleteItem {
+            alarmService.cancelAlarm(it.id_c)
             deleteChecklist(it.id_c, date_text.text.toString())
         }
 

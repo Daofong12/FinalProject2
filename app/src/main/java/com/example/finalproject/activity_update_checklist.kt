@@ -2,15 +2,18 @@ package com.example.finalproject
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
 import java.util.*
 
 class activity_update_checklist : AppCompatActivity() {
 
     private lateinit var sqliteHelper_c: SQLiteHelper_c
+    lateinit var alarmService: AlarmService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,8 @@ class activity_update_checklist : AppCompatActivity() {
         val dialog_event: EditText = findViewById(R.id.text_checklist_event_update)
         val dialog_location: EditText = findViewById(R.id.text_checklist_location_update)
         val btn_chk_update: Button = findViewById(R.id.button_chk_update)
+
+        alarmService = AlarmService(this)
 
         if(category=="服藥"){
             tv_category.setText("服藥")
@@ -65,9 +70,12 @@ class activity_update_checklist : AppCompatActivity() {
         }
 
         val timeListener = object: TimePickerDialog.OnTimeSetListener {
+            @RequiresApi(Build.VERSION_CODES.N)
             override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int){
                 calender.set(Calendar.HOUR_OF_DAY, hourOfDay)
                 calender.set(Calendar.MINUTE, minute)
+                calender.set(Calendar.SECOND, 0)
+                calender.set(Calendar.MILLISECOND, 0)
                 val myformat = "HH : mm"
                 val time_c = android.icu.text.SimpleDateFormat(myformat, Locale.TAIWAN)
                 tv_time.text = time_c.format(calender.time)
@@ -93,11 +101,16 @@ class activity_update_checklist : AppCompatActivity() {
             val checklist = ChecklistModel(id_c = id_c,date_c = new_date_c, time = new_time, category = category.toString(),
                 event = new_event, location = new_location, isSelected = isSelected)
             val status = sqliteHelper_c.updateChecklist(checklist)
+
+            alarmService.cancelAlarm(sqliteHelper_c.getId(new_date_c, new_time, category.toString(), new_event, new_location))
+            alarmService.setExactAlarm(calender.timeInMillis, sqliteHelper_c.getId(new_date_c, new_time, category.toString(), new_event, new_location))
+
             if(status > -1){
                 clearText(tv_date,tv_time,tv_category,dialog_event,dialog_location)
             }else{
                 Toast.makeText(this, "Update failed...", Toast.LENGTH_SHORT).show()
             }
+
 
             finish()
         }
